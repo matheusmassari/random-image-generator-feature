@@ -23,14 +23,18 @@ function App() {
     const imageSource = response.url
     setFavorites((atual) => [...atual, imageSource])
   }
+  console.log(favorites)
   
   return (
+    <>
     <main>
-      <button onClick={getExternalImage}>Generate</button>
+      <button onClick={getExternalImage}>Gerar imagem</button>
       <div className="image">
         <img onClick={handleFavorites} src={response.url} alt="imagem" />
       </div>
     </main>
+    <button>Ver favoritos</button>
+    </>
   );
 }
 

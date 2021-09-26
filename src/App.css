@@ -5,6 +5,8 @@
   --primary: #fd951f;
   --primary-dark: #dd7b0c;
   --white: #f0f0f9;
+  margin: 0 auto;
+  margin-top: 5vh;
 } 
 
 * {
@@ -29,12 +31,16 @@ body {
   flex-direction: column;
 }
 main {
-  width: 90 vw;
+  margin: 0 auto;
+  width: 90vw;
+  
+  
 }
 button {
   width: 100%;
   color: var(--white);
   border: none;
+  border-radius: 2px;
   background: var(--primary);
   text-transform: uppercase;
   font-size: 2.4rem;
@@ -48,7 +54,9 @@ button:hover {
 
 .image {
   height: 80vh;
+  width: 90vw;
   position: relative;
+  
 }
 img {
   width: 100%;
