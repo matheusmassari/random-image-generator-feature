@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [response, setResponse] = useState({});
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || [])
+  const [classe, setClasse] = useState('fav')
   
   useEffect(() => {
     getExternalImage()
@@ -21,19 +22,27 @@ function App() {
 
   function handleFavorites() {
     const imageSource = response.url
-    setFavorites((atual) => [...atual, imageSource])
+    
+    if(favorites.includes(imageSource)) {
+      setFavorites((atual) => atual.filter(ele => ele !== imageSource))
+      setClasse('')
+    } else {
+      setFavorites((atual) => [...atual, imageSource])
+      console.log(classe)
+      setClasse('fav')
+    }
+    
   }
-  console.log(favorites)
+  
   
   return (
     <>
-    <main>
-      <button onClick={getExternalImage}>Gerar imagem</button>
-      <div className="image">
-        <img onClick={handleFavorites} src={response.url} alt="imagem" />
-      </div>
-    </main>
-    <button>Ver favoritos</button>
+      <main>
+        <button onClick={getExternalImage}>Gerar imagem</button>
+        <div className={`image ${classe}`}>
+          <img onClick={handleFavorites} src={response.url} alt="imagem" />
+        </div>
+      </main>
     </>
   );
 }

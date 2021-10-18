@@ -50,6 +50,7 @@ button {
 }
 button:hover {
   background: var(--primary-dark);
+  cursor: pointer;
 }
 
 .image {
