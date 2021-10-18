@@ -42,11 +42,12 @@ function ImageGenerator() {
   return (
     <>
       <main>
-        <button onClick={getExternalImage}>Gerar imagem</button>
-        {favorites.length > 0 ?
-        <a href="FavoritesList.js">Favorites List</a>
-        : null
-        }
+        <div className="btn-container">
+          <button onClick={getExternalImage}>Gerar imagem</button>
+          {favorites.length > 0 ? (
+          <button>Favorites List</button>
+          ) : null}
+        </div>
         <div className={`image ${classe}`}>
           <img onClick={handleFavorites} src={response.url} alt="imagem" />
         </div>
